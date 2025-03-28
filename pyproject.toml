@@ -10,6 +10,7 @@ dependencies = [
     "fastapi>=0.115.12",
     "fabric>=3.2.2",
     "uvicorn>=0.34.0",
+    "dlt[duckdb]>=1.9.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
