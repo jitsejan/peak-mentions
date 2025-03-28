@@ -28,3 +28,15 @@ def generate_docs(c):
 def serve_docs(c):
     """Serve DBT docs locally."""
     c.run(f"cd {BASE_DIR} && dbt docs serve --project-dir dbt_project --profiles-dir dbt_project --profile peak_mentions")
+
+@task
+def ui(c):
+    c.run("dagster dev -f dagster_project/repository.py", pty=True)
+
+@task
+def run_dlt(c):
+    c.run("dagster job execute -f dagster_project/repository.py -j dlt_extract_job", pty=True)
+
+@task
+def run_dbt(c):
+    c.run("dagster job execute -f dagster_project/repository.py -j dynamic_dbt_job", pty=True)
