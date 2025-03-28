@@ -140,3 +140,23 @@ Through the docs the lineage can be visualised:
 ![DBT lineage](img/dbt_lineage.png).
 
 This shows that the fact table used the stg_mentions table which in turn is using all the staging tables.
+
+## Orchestration
+
+To orchestrate the different part of the ETL pipeline Dagster is used. Dagster supports operations and assets which can be turned into pipelines and dependencies. For example, the data extraction should happen before the data modelling is done. 
+
+The Dagster project is found under `dagster_project` and has assets, jobs, resources and a `repository.py`. The last one is the core of the pipeline and defined the other elements. Under assets the dbt assets are defined which links to the actual dbt project and its corresponding manifest file. There are two resources respectively `dbt` and `dlt`. The `dlt` extraction is done through a normal 'op' job which is a chain of normal operations and `dbt` is ran as an asset job. The latter deals better with data, especially if it is moving between steps in the pipeline. 
+
+To run the `dlt` extraction through Dagster, use:
+
+```bash
+$ fab run_dlt
+```
+
+and for `dbt`:
+
+```bash
+$ fab run_dbt
+```
+
+This will ingest the data again from the endpoints and then create some derived tables through dbt.
