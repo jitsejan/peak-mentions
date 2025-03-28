@@ -1,0 +1,12 @@
+name: peak_mentions
+version: '1.0'
+profile: peak_mentions
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target"]
+
+quoting:
+  database: false
+  schema: false
+  identifier: true

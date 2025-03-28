@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: mentions_data
+    schema: mentions_data
+    tables:
+      - name: facebook_scraped
+      - name: facebook_structured
+      - name: facebook_structured__media
+      - name: reddit_scraped
+      - name: reddit_structured
+      - name: reddit_structured__media
+      - name: x_scraped
+      - name: x_structured
+      - name: x_structured__media
+      

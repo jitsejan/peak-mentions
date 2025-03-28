@@ -10,10 +10,19 @@
 #   universal: false
 
 -e file:.
+agate==1.9.1
+    # via dbt-adapters
+    # via dbt-common
+    # via dbt-core
 annotated-types==0.7.0
     # via pydantic
 anyio==4.9.0
     # via starlette
+attrs==25.3.0
+    # via jsonschema
+    # via referencing
+babel==2.17.0
+    # via agate
 bcrypt==4.3.0
     # via paramiko
 certifi==2025.1.31
@@ -24,17 +33,43 @@ cffi==1.17.1
 charset-normalizer==3.4.1
     # via requests
 click==8.1.8
+    # via dbt-core
+    # via dbt-semantic-interfaces
     # via dlt
     # via uvicorn
+colorama==0.4.6
+    # via dbt-common
 cryptography==44.0.2
     # via paramiko
+daff==1.3.46
+    # via dbt-core
+dbt==1.0.0.38.34
+    # via peak-mentions
+dbt-adapters==1.14.3
+    # via dbt-core
+    # via dbt-duckdb
+dbt-common==1.16.0
+    # via dbt-adapters
+    # via dbt-core
+    # via dbt-duckdb
+dbt-core==1.9.3
+    # via dbt-duckdb
+dbt-duckdb==1.9.2
+    # via peak-mentions
+dbt-extractor==0.5.1
+    # via dbt-core
+dbt-semantic-interfaces==0.7.4
+    # via dbt-core
 decorator==5.2.1
     # via fabric
+deepdiff==7.0.1
+    # via dbt-common
 deprecated==1.2.18
     # via fabric
 dlt==1.9.0
     # via peak-mentions
 duckdb==1.2.1
+    # via dbt-duckdb
     # via dlt
 fabric==3.2.2
     # via peak-mentions
@@ -59,23 +94,59 @@ humanize==4.12.2
 idna==3.10
     # via anyio
     # via requests
+importlib-metadata==6.11.0
+    # via dbt-semantic-interfaces
 invoke==2.2.0
     # via fabric
+isodate==0.6.1
+    # via agate
+    # via dbt-common
+jinja2==3.1.6
+    # via dbt-common
+    # via dbt-core
+    # via dbt-semantic-interfaces
 jsonpath-ng==1.7.0
     # via dlt
+jsonschema==4.23.0
+    # via dbt-common
+    # via dbt-semantic-interfaces
+jsonschema-specifications==2024.10.1
+    # via jsonschema
+leather==0.4.0
+    # via agate
 makefun==1.15.6
     # via dlt
 markdown-it-py==3.0.0
     # via rich
+markupsafe==3.0.2
+    # via jinja2
+mashumaro==3.14
+    # via dbt-adapters
+    # via dbt-common
+    # via dbt-core
 mdurl==0.1.2
     # via markdown-it-py
+more-itertools==10.6.0
+    # via dbt-semantic-interfaces
+msgpack==1.1.0
+    # via mashumaro
+networkx==3.4.2
+    # via dbt-core
+ordered-set==4.1.0
+    # via deepdiff
 orjson==3.10.16
     # via dlt
 packaging==24.2
+    # via dbt-core
     # via dlt
     # via requirements-parser
 paramiko==3.5.1
     # via fabric
+parsedatetime==2.6
+    # via agate
+pathspec==0.12.1
+    # via dbt-common
+    # via dbt-core
 pathvalidate==3.2.3
     # via dlt
 pendulum==3.0.0
@@ -86,9 +157,14 @@ ply==3.11
     # via jsonpath-ng
 polyfactory==2.20.0
     # via peak-mentions
+protobuf==5.29.4
+    # via dbt-adapters
+    # via dbt-common
+    # via dbt-core
 pycparser==2.22
     # via cffi
 pydantic==2.11.0
+    # via dbt-semantic-interfaces
     # via fastapi
 pydantic-core==2.33.0
     # via pydantic
@@ -97,39 +173,66 @@ pygments==2.19.1
 pynacl==1.5.0
     # via paramiko
 python-dateutil==2.9.0.post0
+    # via dbt-common
+    # via dbt-semantic-interfaces
     # via pendulum
     # via time-machine
+python-slugify==8.0.4
+    # via agate
+pytimeparse==1.1.8
+    # via agate
 pytz==2025.2
+    # via dbt-adapters
+    # via dbt-core
     # via dlt
 pyyaml==6.0.2
+    # via dbt-core
+    # via dbt-semantic-interfaces
     # via dlt
+referencing==0.36.2
+    # via jsonschema
+    # via jsonschema-specifications
 requests==2.32.3
+    # via dbt-common
+    # via dbt-core
     # via dlt
+    # via snowplow-tracker
 requirements-parser==0.11.0
     # via dlt
 rich==13.9.4
     # via rich-argparse
 rich-argparse==1.7.0
     # via dlt
+rpds-py==0.24.0
+    # via jsonschema
+    # via referencing
 semver==3.0.4
     # via dlt
 setuptools==78.1.0
+    # via dbt
     # via dlt
     # via types-setuptools
 simplejson==3.20.1
     # via dlt
 six==1.17.0
+    # via isodate
     # via python-dateutil
 smmap==5.0.2
     # via gitdb
 sniffio==1.3.1
     # via anyio
+snowplow-tracker==1.1.0
+    # via dbt-core
 sqlglot==26.12.0
     # via dlt
+sqlparse==0.5.3
+    # via dbt-core
 starlette==0.46.1
     # via fastapi
 tenacity==9.0.0
     # via dlt
+text-unidecode==1.3
+    # via python-slugify
 time-machine==2.16.0
     # via pendulum
 tomlkit==0.13.2
@@ -138,11 +241,18 @@ types-setuptools==76.0.0.20250313
     # via requirements-parser
 typing-extensions==4.13.0
     # via anyio
+    # via dbt-adapters
+    # via dbt-common
+    # via dbt-core
+    # via dbt-semantic-interfaces
     # via dlt
     # via fastapi
+    # via mashumaro
     # via polyfactory
     # via pydantic
     # via pydantic-core
+    # via referencing
+    # via snowplow-tracker
     # via typing-inspection
 typing-inspection==0.4.0
     # via pydantic
@@ -156,3 +266,5 @@ uvicorn==0.34.0
     # via peak-mentions
 wrapt==1.17.2
     # via deprecated
+zipp==3.21.0
+    # via importlib-metadata

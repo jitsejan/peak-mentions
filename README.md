@@ -96,3 +96,47 @@ Alternatively, run the following to get the UI:
 ```bash
 $ fab duckdb-ui
 ```
+
+## Data transformation
+
+To transform the data from its raw shape to useful data the transformation tool `dbt` is used. The first step is to read in the raw data from the database, then combine the different sources in facts and dimensions and finally into aggregates or other insights.
+
+The dbt project lives in the root folder under `dbt_project` which contains the models, the `dbt_project.yml` and the `profiles.yml`. The `dbt_project.yml` contains the settings for the project. The `profiles.yml` has the different targets for the project which would be in this case a DuckDB instance.
+
+The models are divided by `staging`, `dim` and `fct`. The `staging` layer retrieves all the raw data and ensure data is in the right format. There are 6 staging models corresponding to the 6 endpoints, and an additional `stg_mentions` that combines the data from the different models into a single model. The `dim` folder contains a author and platform dimension and under the `fct` folder the top URLs are calculated as well as the author likes daily.
+
+### Running the transformation
+
+To run the dbt transformation, execute:
+
+```bash
+$ fab dbt-build
+```
+
+This will first calculate the 6 staging models for the endpoints, then calculate the mention table in staging and finally calculate the dimension and fact tables.
+
+### Validating the transformation
+
+Once dbt has run, the tables are created and can be queried through the DuckDB console or UI. To visualise the data the dbt docs can be used.
+
+First generate the docs with:
+
+```bash
+$ fab generate-docs
+```
+
+followed by
+
+```bash
+$ fab serve-docs
+```
+
+which will open the browser with the overview of the project.
+
+![DBT overview](img/dbt_overview.png).
+
+Through the docs the lineage can be visualised:
+
+![DBT lineage](img/dbt_lineage.png).
+
+This shows that the fact table used the stg_mentions table which in turn is using all the staging tables.

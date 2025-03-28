@@ -10,3 +10,10 @@ wheels/
 .venv
 .DS_Store
 mentions_pipeline.duckdb
+logs/
+
+# DBT directories
+/.dbt/
+dbt_project/target/
+/logs/
+/dbt_modules/

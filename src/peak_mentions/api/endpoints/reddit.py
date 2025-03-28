@@ -6,8 +6,8 @@ router = APIRouter()
 
 @router.get("/api/reddit")
 def get_reddit():
-    return RedditMentionFactory.batch(5)
+    return RedditMentionFactory.batch(50)
 
 @router.get("/scraped/reddit")
 def get_scraped_reddit():
-    return [generate_scraped_reddit_mention() for _ in range(5)]
+    return [generate_scraped_reddit_mention() for _ in range(50)]

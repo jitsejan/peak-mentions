@@ -1,0 +1,8 @@
+peak_mentions:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: mentions_pipeline.duckdb
+      threads: 1
+      schema: mentions_data
