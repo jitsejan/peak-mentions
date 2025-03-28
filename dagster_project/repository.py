@@ -5,10 +5,8 @@ from dagster_project.resources.dbt_resource import dbt_resource
 from dagster_project.resources.dlt_resource import dlt_resource
 from dagster import define_asset_job
 
-# Define the asset job for DBT models
 dynamic_dbt_job = define_asset_job("dynamic_dbt_job", selection=[run_all_dbt_models])
 
-# Central Definitions object
 defs = Definitions(
     jobs=[dlt_extract_job, dynamic_dbt_job],
     assets=[run_all_dbt_models],
