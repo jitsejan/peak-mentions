@@ -1,7 +1,7 @@
 import dlt
-from sources.facebook import facebook_source
-from sources.x import x_source
-from sources.reddit import reddit_source
+from .sources.facebook import facebook_source
+from .sources.x import x_source
+from .sources.reddit import reddit_source
 
 def run_all():
     pipeline = dlt.pipeline(

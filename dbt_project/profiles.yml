@@ -3,6 +3,6 @@ peak_mentions:
   outputs:
     dev:
       type: duckdb
-      path: mentions_pipeline.duckdb
+      path: ../mentions_pipeline.duckdb
       threads: 1
       schema: mentions_data
