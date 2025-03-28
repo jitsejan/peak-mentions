@@ -10,3 +10,63 @@
 #   universal: false
 
 -e file:.
+annotated-types==0.7.0
+    # via pydantic
+anyio==4.9.0
+    # via starlette
+bcrypt==4.3.0
+    # via paramiko
+cffi==1.17.1
+    # via cryptography
+    # via pynacl
+click==8.1.8
+    # via uvicorn
+cryptography==44.0.2
+    # via paramiko
+decorator==5.2.1
+    # via fabric
+deprecated==1.2.18
+    # via fabric
+fabric==3.2.2
+    # via peak-mentions
+faker==37.1.0
+    # via polyfactory
+fastapi==0.115.12
+    # via peak-mentions
+h11==0.14.0
+    # via uvicorn
+idna==3.10
+    # via anyio
+invoke==2.2.0
+    # via fabric
+paramiko==3.5.1
+    # via fabric
+polyfactory==2.20.0
+    # via peak-mentions
+pycparser==2.22
+    # via cffi
+pydantic==2.11.0
+    # via fastapi
+pydantic-core==2.33.0
+    # via pydantic
+pynacl==1.5.0
+    # via paramiko
+sniffio==1.3.1
+    # via anyio
+starlette==0.46.1
+    # via fastapi
+typing-extensions==4.13.0
+    # via anyio
+    # via fastapi
+    # via polyfactory
+    # via pydantic
+    # via pydantic-core
+    # via typing-inspection
+typing-inspection==0.4.0
+    # via pydantic
+tzdata==2025.2
+    # via faker
+uvicorn==0.34.0
+    # via peak-mentions
+wrapt==1.17.2
+    # via deprecated
