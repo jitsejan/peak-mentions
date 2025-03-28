@@ -3,9 +3,14 @@ name = "peak-mentions"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
-    { name = "Jitse-Jan", email = "jj.vanwaterschoot@validis.com" }
+    { name = "Jitse-Jan", email = "jitsejan@protonmail.com" }
 ]
-dependencies = []
+dependencies = [
+    "polyfactory>=2.20.0",
+    "fastapi>=0.115.12",
+    "fabric>=3.2.2",
+    "uvicorn>=0.34.0",
+]
 readme = "README.md"
 requires-python = ">= 3.8"
 
