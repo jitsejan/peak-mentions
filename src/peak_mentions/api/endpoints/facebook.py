@@ -6,8 +6,8 @@ router = APIRouter()
 
 @router.get("/api/facebook")
 def get_facebook():
-    return FacebookMentionFactory.batch(5)
+    return FacebookMentionFactory.batch(50)
 
 @router.get("/scraped/facebook")
 def get_scraped_facebook():
-    return [generate_scraped_facebook_mention() for _ in range(5)]
+    return [generate_scraped_facebook_mention() for _ in range(50)]

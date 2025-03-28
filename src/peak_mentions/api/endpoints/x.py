@@ -6,8 +6,8 @@ router = APIRouter()
 
 @router.get("/api/x")
 def get_x():
-    return XMentionFactory.batch(5)
+    return XMentionFactory.batch(50)
 
 @router.get("/scraped/x")
 def get_scraped_x():
-    return [generate_scraped_x_mention() for _ in range(5)]
+    return [generate_scraped_x_mention() for _ in range(50)]

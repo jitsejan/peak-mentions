@@ -3,7 +3,7 @@ from datetime import datetime
 def generate_scraped_facebook_mention():
     return {
         "text": "Some Facebook post",
-        "author": None,
+        "author": "Mark Zuckerberg",
         "created_date": "Yesterday",
         "likes": "200",
         "heart_reaction": 42,
