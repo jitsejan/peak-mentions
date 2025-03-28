@@ -59,3 +59,40 @@ The data can now be queried locally on `localhost:8000/`. Explore the API by nav
 Or use an API client to explore the data:
 
 ![Endpoints for pipeline](img/peakmention_httpie.png)
+
+## Data ingestion
+
+To load data from the endpoints created in the previous step the ingestion package `dlt` is used. For each source (Facebook, Reddit, X) a connector is build where the different endpoints (resources) are defined. The data is loaded into a DuckDB Database.
+
+### Running the ingestion
+In order to execute the ingestion job, run the following command:
+
+```bash
+$ python src/peak_mentions/connectors/dlt_pipeline.py
+```
+
+Or alternatively, use Fabric again:
+
+```bash
+$ fab ingest-all
+```
+
+### Validating the data
+
+After running the ingestion, the data can be validated using the DuckDB UI (or loaded into most popular database viewers).
+
+Running
+
+```bash
+$ duckdb --ui mentions_pipeline.duckdb
+```
+
+will open a browser with the DuckDB interface that contains a table viewer and a notebook environment.
+
+![DuckDB interface](img/duckdb_ui.png)
+
+Alternatively, run the following to get the UI:
+
+```bash
+$ fab duckdb-ui
+```
