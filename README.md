@@ -33,13 +33,11 @@ and for each source there are two endpoints:
 
 The data from the api is structured where the scraped endpoints return semi-structured data. The endpoints are defined under `api/endpoints`.
 
-![Endpoints for pipeline](img/peakmention_httpie.png)
-
 Based on the schema description different models are created under `api/models` for the three different sources and two factories for each to create both the structured and unstructured data under the `api/factories` folder.
 
 Finally, the server to expose the API is defined in `api/main.py` and includes routers to the endpoint. All the endpoints will trigger the data factory and create dummy data to be consumed.
 
-### Run server
+### Running the server
 To run the server the following command is used:
 
 ```bash
@@ -52,3 +50,12 @@ Or alternatively, use the `fabfile.py` with the command:
 $ fab run-fastapi
 ```
 
+### Querying the data
+
+The data can now be queried locally on `localhost:8000/`. Explore the API by navigating to `http://localhost:8000/docs` and try the endpoints:
+
+![Docs for API](img/peakmention_swagger.png)
+
+Or use an API client to explore the data:
+
+![Endpoints for pipeline](img/peakmention_httpie.png)
