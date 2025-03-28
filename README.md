@@ -159,4 +159,15 @@ and for `dbt`:
 $ fab run_dbt
 ```
 
-This will ingest the data again from the endpoints and then create some derived tables through dbt.
+This will ingest the data again from the endpoints and then create some derived tables through dbt. 
+
+## Future improvements
+
+- Use dotenv for defining variables rather than hardcoding them in the Python files.
+- Add proper tests around the different parts of the pipeline. pytest for the API connectors, dbt test and dbt expectations for the actual data validation.
+- Chain the dlt and dbt steps in Dagster together by converting dlt to an asset job. Currently ops and assets don't work well together but ideally it is one flow the dependency handling is much more scalable. 
+- Use Dagster UI better to surface the data at different parts in the pipeline.
+- Introduce pre-commit with pytest, pylint, black, and other similar Python checks
+- Actual implementation on a cloud provider. Probably deploying containers on Kubernetes for Dagster.
+- Add logging across the whole code base.
+- Enhanced monitoring of the pipelines. 
