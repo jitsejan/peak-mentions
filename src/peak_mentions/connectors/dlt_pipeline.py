@@ -1,7 +1,8 @@
 import dlt
-from .sources.facebook import facebook_source
-from .sources.x import x_source
-from .sources.reddit import reddit_source
+from peak_mentions.connectors.sources.facebook import facebook_source
+from peak_mentions.connectors.sources.x import x_source
+from peak_mentions.connectors.sources.reddit import reddit_source
+
 
 def run_all():
     pipeline = dlt.pipeline(
@@ -17,6 +18,7 @@ def run_all():
     ])
 
     print(load_info)
+
 
 if __name__ == "__main__":
     run_all()
